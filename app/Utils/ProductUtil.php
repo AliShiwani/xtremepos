@@ -1444,12 +1444,12 @@ class ProductUtil extends Util
                     ->where('category_id', $product->category_id)
                     ->orderBy('priority', 'desc')
                     ->latest();
-        if ($is_cg) {
-            $query1->where('applicable_in_cg', 1);
-        }
-        if ($is_spg) {
-            $query1->where('applicable_in_spg', 1);
-        }
+        // if ($is_cg) {
+        //     $query1->where('applicable_in_cg', 1);
+        // }
+        // if ($is_spg) {
+        //     $query1->where('applicable_in_spg', 1);
+        // }
 
         $discount = $query1->first();
                     
@@ -1465,12 +1465,12 @@ class ProductUtil extends Util
                         ->orWhereRaw('(category_id="' . $product->category_id .'" AND brand_id IS NULL)');
                     })
                     ->orderBy('priority', 'desc');
-            if ($is_cg) {
-                $query2->where('applicable_in_cg', 1);
-            }
-            if ($is_spg) {
-                $query2->where('applicable_in_spg', 1);
-            }
+            // if ($is_cg) {
+            //     $query2->where('applicable_in_cg', 1);
+            // }
+            // if ($is_spg) {
+            //     $query2->where('applicable_in_spg', 1);
+            // }
             $discount = $query2->first();
         }
 
